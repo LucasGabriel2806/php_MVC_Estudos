@@ -14,14 +14,18 @@
         <legend>Cadatro de Pessoa</legend>
 
         <form method="post" action="/pessoa/form/save">
+
+            <input type="hidden" value="<?= $model->id ?>" name="id" />
+
             <label for="nome">Nome:</label>
-            <input id="nome" name="nome" type="text" />
+            <input id="nome" name="nome" value="<?= $model->nome ?>" type="text" />
 
             <label for="cpf">CPF:</label>
-            <input id="cpf" name="cpf" type="number" />
+            <input id="cpf" name="cpf" value="<?= $model->cpf ?>" type="number" />
 
             <label for="data_nascimento">Data Nascimento:</label>
-            <input id="data_nascimento" name="data_nascimento" type="date" />
+            <input id="data_nascimento" name="data_nascimento" 
+            value="<?= $model->data_nascimento ?>" type="date" />
 
             <button type="submit">Salvar</button>
         </form>
