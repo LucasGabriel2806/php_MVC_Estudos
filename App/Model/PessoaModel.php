@@ -1,11 +1,16 @@
 <?php
 
+namespace App\Model;
+
+use App\DAO\PessoaDAO;
+
+
 /**
  * A camada model é responsável por transportar os dados da Controller até a DAO e vice-versa.
  * Também é atribuído a Model a validação dos dados da View e controle de acesso aos métodos
  * da DAO.
  */
-class PessoaModel
+class PessoaModel extends Model
 {
 
     /**
@@ -13,10 +18,6 @@ class PessoaModel
      */
     public $id, $nome, $cpf, $data_nascimento;
 
-    /**
-     * Propriedade que armazenará o array retornado da DAO com a listagem das pessoas.
-     */
-    public $rows;
 
     /**
      * Declaração do método save que chamará a DAO para gravar no banco de dados
@@ -24,7 +25,6 @@ class PessoaModel
      */
     public function save()
     {
-        include 'DAO/PessoaDAO.php';
 
         // Instância do objeto e conexão no banco de dados via construtor
         $dao = new PessoaDAO();
@@ -50,7 +50,6 @@ class PessoaModel
      */
     public function getAllRows()
     {
-        include 'DAO/PessoaDAO.php';
 
         // Instância do objeto e conexão no banco de dados via construtor
         $dao = new PessoaDAO();
@@ -68,8 +67,6 @@ class PessoaModel
      */
     public function getById(int $id)
     {
-        include 'DAO/PessoaDAO.php';
-
         $dao = new PessoaDAO();
 
         $obj = $dao->selectById($id);// Obtendo um model preenchido da camada DAO
@@ -96,7 +93,6 @@ class PessoaModel
      */
     public function delete(int $id)
     {
-        include 'DAO/PessoaDAO.php';
 
         $dao = new PessoaDAO();
 

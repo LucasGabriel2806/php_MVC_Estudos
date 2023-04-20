@@ -1,50 +1,12 @@
 <?php
 
-include 'Controller/PessoaController.php';
+/**
+ * Melhorias
+ * 1) palavra chave final no método render da Controller
+ * 2) Estender PDO na classe DAO
+ * 3) Parametro levels no dirname
+ */
 
-/** 
- * parse_url: função
- * recebe dois parametros
- * 1º url que o usuario ta tentando acessar
- * 2º é um paremetro de configuração, que vai ser, 
- * o que eu quero pegar da url, que vai ser o path, 
- * o caminho que o usuario ta tentando acessar
- * 
- * $_SERVER: consigo pegar o que o usuario ta tentando 
- * acessar através da REQUEST_URI.
- * 
- * */ 
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-//echo $url;
-
-switch($url)
-{
-    case '/':
-        echo "página inicial";
-    break;
-
-    case '/pessoa':
-        PessoaController::index();
-    break;
-
-    case '/pessoa/form':
-        PessoaController::form();
-    break;
-
-    case '/pessoa/form/save':
-        PessoaController::save();
-    break;
-
-    case '/pessoa/delete':
-        PessoaController::delete();
-    break;
-
-
-    default:
-        echo "Erro 404";
-    break;
-   
-}
-
-
+ include 'config.php';
+ include 'autoload.php';
+ include 'rotas.php';

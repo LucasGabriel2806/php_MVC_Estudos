@@ -1,5 +1,12 @@
 <?php
 
+namespace App\Controller;
+
+/**
+ * Definimos aqui que nossa classe precisa incluir uma classe de outro subnamespace
+ * do projeto, no caso a classe PessoaModel do subnamespace Model
+ */
+use App\Model\PessoaModel;
 /**
  * Classes Controller são responsáveis por processar as requisições do usuário.
  * Isso significa que toda vez que um usuário chama uma rota, um método (função)
@@ -11,7 +18,7 @@
  * processar uma rota 
  */
 
-class PessoaController
+class PessoaController extends Controller
 {
     /**
      * Os métodos index serão usados para devolver uma View.
@@ -19,13 +26,17 @@ class PessoaController
     
     public static function index()
     {
-        include 'Model/PessoaModel.php'; // inclusão do arquivo model.
-
         $model = new PessoaModel(); // Instância da Model
         $model->getAllRows();// Obtendo todos os registros, abastecendo a propriedade $rows da model.
 
-        include 'View/modules/Pessoa/ListaPessoa.php';
-        // Include da View, propriedade $rows da Model pode ser acessada na View
+        /**
+         * O método render foi idealizado para encapsular o include de views de como que
+         * se o endereço de uma view por passado de forma equivocada nós possamos tratar
+         * o arquivo não encontrado e mostrar uma mensagem mais amigável ao usuário.
+         * Veja que o método recebe dois parâmetros: 1) caminho da view dentro da pasta modules
+         * e 2) o model da view da entidade em questão, este segundo arguimento é opcional.
+         */
+        parent::render('Pessoa/ListaPessoa', $model);
     }
 
     /**
@@ -33,11 +44,10 @@ class PessoaController
      */
     public static function form()
     {
-        include 'Model/PessoaModel.php';
         $model = new PessoaModel();
 
         if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
-            $model = $model->getById( (int) $_GET['id']);// Typecast e obtendo o model preenchido vindo da DAO.
+        $model = $model->getById( (int) $_GET['id']);// Typecast e obtendo o model preenchido vindo da DAO.
         /**
          * Typecast(int) Vai pegar o id da barra do navegador
          * que vem como string, e estou convertendo pra int
@@ -46,7 +56,7 @@ class PessoaController
 
         //var_dump($model);
 
-        include 'View/modules/Pessoa/FormPessoa.php'; // Include da View. Note que a variável $model está disponível na View.
+        parent::render('Pessoa/FormPessoa', $model);
     }
 
     /**
@@ -54,7 +64,6 @@ class PessoaController
      */
     public static function save()
     {
-        include 'Model/PessoaModel.php';
 
         // Abaixo cada propriedade do objeto sendo abastecida com os dados informados
         // pelo usuário no formulário (note o envio via POST)
@@ -75,7 +84,6 @@ class PessoaController
      */
     public static function delete()
     {
-        include 'Model/PessoaModel.php';
 
         $model = new PessoaModel();
 
