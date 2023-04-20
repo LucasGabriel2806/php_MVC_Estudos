@@ -15,3 +15,12 @@ https://github.com/tiagotas/PHP_MVC_Exemplo_v1<br>
 2º Video: **AULA 2 - COMO FAZER CRUD NO MYSQL COM MVC EM PHP - CONTINUAÇÃO CONCEITOS BÁSICOS**<br>
 link video: https://www.youtube.com/watch?v=MF3rXXDNkrI
 - Delete e Update: Fim do Segundo video
+
+3º Video: **AULA 3 - COMO FAZER AUTOLOAD DE CLASSES EM PHP COM MVC**<br>
+link video: https://www.youtube.com/watch?v=5PXTGKOo0os&list=PLHVpcBDJr5dnryHpC8t4OUI3JJF2xIBc9&index=3<br>
+4º Video: **AULA 4 - COMO FAZER CRUD COM MVC EM PHP - NAMESPACES E AUTOLOAD - COMO FAZER**<br>
+link video: https://www.youtube.com/watch?v=HmkiRg2rVKo&list=PLHVpcBDJr5dnryHpC8t4OUI3JJF2xIBc9&index=4<br>
+5º Video: **AULA 5 - COMO FAZER CRUD COM MVC EM PHP - HERANÇA, CONSTANTES E CLASSES ABSTRATAS**<br>
+link video: https://www.youtube.com/watch?v=pAs8oyWMhK0&list=PLHVpcBDJr5dnryHpC8t4OUI3JJF2xIBc9&index=5<br>
+Repositórios dos videos 3, 4 e 5: https://github.com/tiagotas/PHP_MVC_Exemplo_v2<br>
+- Projeto Básico Finalizado: Fim da Playlist
