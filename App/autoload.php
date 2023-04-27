@@ -12,6 +12,8 @@
  */
 spl_autoload_register(function ($nome_da_classe) 
 {
+    //var_dump($nome_da_classe);
+
     /**
      * Defidindo o caminho absoluto até o arquivo que será incluído pelo PHP.
      * A constante BASEDIR está definida no arquivo config.php. Também é
